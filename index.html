@@ -580,9 +580,11 @@ function oMousePos(canvas2, evt) {
             date.innerHTML = i.toString();
             name.innerHTML = bestMatch.toString();
             save = row.insertCell(2);
-            save.innerHTML = "<input type='text' id='edit' name='data[correct]' value='RollNo' onclick=''>";
-<!--            edit = row.insertCell(3);-->
-<!--            edit.innerHTML = "<input type='button' id='ok' value='Save' onclick=''>"-->
+             save.innerHTML = 
+                    '<input type="radio" id="Yes" name="Yes" value="Yes"><label for="Yes">Yes</label><input type="radio" id="no" name="no" value="no"><label for="No">NO</label>'
+                  //             save.innerHTML = "<input type='text' id='edit' name='data[correct]' value='RollNo' onclick=''>";
+           edit = row.insertCell(3);
+           edit.innerHTML = "<input type='button' id='save' value='Save' onclick=''>"
         })
 
     }
