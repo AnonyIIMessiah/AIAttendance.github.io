@@ -81,6 +81,7 @@ crossorigin="anonymous">
     }
 
     table {
+    
         border: 1px;
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -103,11 +104,11 @@ justify-content: center;
 } */
 
 
-canvas {
-      position: absolute;
-      top:0
-      left: 0;
-    }
+<!--canvas {-->
+<!--      position: absolute;-->
+<!--      top:0-->
+<!--      left: 0;-->
+<!--    }-->
 </style>
 <style>
 <!--#overlay, .overlay {-->
@@ -316,8 +317,8 @@ function detection()
 
         const container = document.createElement('div')
         container.style.position = 'absolute'
-        container.style.float = 'left' 
-//         container.class ="col-6"
+<!--        container.classList.add("mt-3 text-center");-->
+<!--        container.class ="col-6"-->
         document.body.append(container)
         const img= document.getElementById('originalImg')
         container.append(img)
@@ -452,18 +453,21 @@ function detection()
     <button type="button" onclick="detection()" class="btn btn-default">Detect</button>
     <br><br>
 </form>
-<!-- <div class='mt-3 text-center'>-->
-<div class="col-6" style="float:left">
-       <img src="images/20221121_104311.jpg"  id="originalImg" style="position:absolute;left:0px" width="450px" height="500px" />
+<!-- <div class='row-6 text-center'>-->
+
+<div class="col-6" style="float:left; position:relative">
+       <img src="images/20221121_104311.jpg"  id="originalImg" style="position:absolute;left:0px" width="600px" height="600px" />
 
 <!--       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>-->
-    <h2 style="color:Yellow">Detected students</h2>
+<!--    <h2 style="color:Yellow">Detected students</h2>-->
 </div>
 
 <!--</div>-->
-
+<div class="col-6" style="float:left;">
+    </div>
 <!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>-->
   <div class="col-6" style="float:right">
+<!--      <div class='row-6'>-->
   <p style="color:red"> In case, the face remains undetected:<br>
     1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
     2. Download the image using download button.<br>
@@ -478,7 +482,7 @@ function detection()
       <th>Student Roll Number</th>
       <th> Correct Roll Number</th>
 <!--      <th> Save </th>-->
-    </th>
+<!--    </th>-->
     </tr>
   </thead>
   <tbody id="testBody">
