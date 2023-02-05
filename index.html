@@ -403,31 +403,6 @@ function detection()
 }
 
 </script>
-<!--<script>-->
-<!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit?usp=sharing&ndash;&gt;-->
-<!--let SHEET_ID = '1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs'-->
-<!--let SHEET_TITLE = 'Sheet1';-->
-<!--let SHEET_RANGE = 'A2:D6'-->
-<!--&lt;!&ndash;'E13:F23'&ndash;&gt;-->
-
-<!--let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);-->
-<!--&lt;!&ndash;&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash; https://drive.google.com/uc?export=view&id=[image_id]&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true&ndash;&gt;-->
-
-<!--fetch(FULL_URL)-->
-<!--.then(res => res.text())-->
-<!--.then(rep => {-->
-<!--    let data = JSON.parse(rep.substr(47).slice(0,-2));-->
-<!--    let player_Name_title = document.getElementById('originalImg');-->
-<!--&lt;!&ndash;    console.log(data.table.rows[2].c[3].v);&ndash;&gt;-->
-
-<!--&lt;!&ndash;    player_Name_title.innerHTML = data.table.rows[0].c[3].v;&ndash;&gt;-->
-<!--    document.getElementById("originalImg").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[0].c[3].v;-->
-<!--    document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[0].c[3].v;-->
-<!--})-->
-<!--</script>-->
 <form name="Form_d" onsubmit="return validateForm()">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="date" style="color:white">Date</label>
     <input type="date" id="date" name="date" value="30/01/2023" placeholder="Date">
@@ -463,51 +438,30 @@ function detection()
       <option value="06">06:00 PM</option>
       <option value="07">07:00 PM</option>
     </select>
-<!--    <select id="time" name="time">-->
-<!--      <option value="9-10">9:00-10:00 AM</option>-->
-<!--      <option value="10-11">10:00-11:00 AM</option>-->
-<!--      <option value="11-12">11:00-12:00 Noon</option>-->
-<!--    </select></div>-->
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <label for="cid" style="color:white">Course Id</label>
     <input type="text" id="cid" name="cid">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <label for="code" style="color:white">Class Code</label>
     <input type="text" id="code" name="code">
-<!--    <label for="time" style="color:white">Course ID</label>-->
-<!--   <input type="text" id="cid" name="cid" placeholder="Course ID..">-->
-<!--    <label for="time" style="color:white">Course Code</label>-->
-<!--   <input type="text" id="ccode" name="ccode" placeholder="Course code..">-->
 
     <button type="button" onclick="detection_1()" class="btn btn-default">Submit</button>
     <button type="button" onclick="detection()" class="btn btn-default">Detect</button>
+    <br><br>
 </form>
- <div class='mt-3 text-center'>
-<div>
-<div class="column" id="LatestPost">
+<!-- <div class='mt-3 text-center'>-->
+<div class="col-6" style="float:left">
        <img src="images/20221121_104311.jpg"  id="originalImg" style="position:absolute;left:0px" width="700" height="700" />
 
 <!--       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>-->
     <h2 style="color:Yellow">Detected students</h2>
 </div>
-<!--   <div class="column">-->
-<!--&lt;!&ndash;<img id="myImg" src="compman.gif" width="107" height="98">&ndash;&gt;-->
-<!--    <div id="Grid" class="Grid">-->
-<!--&lt;!&ndash;        <div id="player_Name_title"></div>&ndash;&gt;-->
-<!--&lt;!&ndash;        <div id="player_Shoe_title"></div>&ndash;&gt;-->
-<!--    </div>-->
-<!--       <img src="images/20221121_104311.jpg" id="originalImg1" width="700" height="700" />-->
-<!--       <canvas id="reflay1" width="700" height="700" onclick="popup()" class="overlay1"></canvas>-->
-<!--       <h2 style="color:Yellow">Tag here for undetected students</h2>-->
-<!--       <button id="download"class="btn btn-default">Download</button>-->
-<button type="button" onclick="LatestPost();" class="btn btn-default">Download</button>
-       <button style="align:centre"  type="button" class="btn btn-default"><a href="indexgithub2.html" >Next</a></button>
 
 <!--</div>-->
-</div></div>
 
 <!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>-->
-  <div class="column">
+  <div class="col-6" style="float:right">
   <p style="color:red"> In case, the face remains undetected:<br>
     1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
     2. Download the image using download button.<br>
@@ -532,7 +486,9 @@ function detection()
 
 </table>
 <!--            <button onclick="ExportToExcel('xlsx')">Export table to excel</button>-->
-            <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Export to Excel"></div></div>
+            <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Export to Excel">
+  <button type="button" onclick="LatestPost();" class="btn btn-default">Download Image</button>
+       <button style="align:centre"  type="button" class="btn btn-default"><a href="indexgithub2.html" >Next Page</a></button></div></div>
 <!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
 
 <!--<div class='mt-3 text-center'>-->
@@ -641,6 +597,9 @@ function ExportToExcel(type, fn, dl) {
     var elt = document.getElementById('myTable');
     var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
     console.log(wb);
+    <!--return dl ?-->
+    <!--XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):-->
+    <!--XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));-->
 }
 </script>
      </div>
@@ -652,6 +611,7 @@ function tableToExcel(table, name, filename) {
 
         if (!table.nodeType) table = document.getElementById(table)
         var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+<!--        document.write("table:::"+base64(format(template, ctx))-->
         var link = document.createElement('a');
         link.download = filename;
         link.href = uri + base64(format(template, ctx));
@@ -659,6 +619,9 @@ function tableToExcel(table, name, filename) {
 }
   </script>
 </div></div>
+<!--        <input type="button" id="btnMerge" value="Merge Tables" />-->
+<!--<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vThyEuSyk50YKrlqzyQAtTcTPgFA76dMRaAkZ07lYpNKv4gBkrdoV5w82MIcIRQO7utIaWAFUjkNntH/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>-->
+        </div>
 
 
 <script src="/scripts/snippet-javascript-console.min.js?v=1"></script>
