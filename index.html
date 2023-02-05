@@ -75,13 +75,11 @@ crossorigin="anonymous">
         font-family: sans-serif;
         margin-top: 40px;
         height: 100vh;
-        width: 100vw;
         padding: 0;
         margin: 0;
     }
 
     table {
-    
         border: 1px;
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -102,20 +100,18 @@ crossorigin="anonymous">
 display: flex;
 justify-content: center;
 } */
-
-
 canvas {
       position: absolute;
-     top:0
-     left: 0;
-        }
+      top:0
+      left: 0;
+    }
 </style>
 <style>
-<!--#overlay, .overlay {-->
-<!--            position: absolute;-->
-<!--            top: 240;-->
-<!--            left: 29;-->
-<!--            }-->
+/* #overlay, .overlay {
+            position: absolute;
+            top: 240;
+            left: 29;
+            } */
 
 #overlay1, .overlay1 {
             position: absolute;
@@ -255,7 +251,7 @@ function detection_1() {
             image.appendChild(img1);
             console.log("image.src"+image.src)
             image.src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;
-<!--            document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
+            document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;
             console.log("https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v)
 <!--                url = "https://drive.google.com/uc?export=view&id="+data.table.rows[i].c[6].v;-->
 <!--            image.innerHTML="<img id='originalImg' src='" + url + "' >";-->
@@ -315,32 +311,17 @@ function detection()
         await faceapi.loadFaceRecognitionModel(MODEL_URL)
         await faceapi.loadFaceExpressionModel(MODEL_URL)
 
-        const container = document.createElement('div')
-        container.style.position = 'absolute'
-<!--        container.classList.add("mt-3 text-center");-->
-<!--        container.class ="col-6"-->
-        document.body.append(container)
         const img= document.getElementById('originalImg')
-        container.append(img)
-<!--        document.img.append(container)-->
-<!--        document.img.append('Loaded')-->
 <!--        img.crossOrigin = "Anonymous";-->
-        alert("Please wait")
+        alert(img.src)
 <!--        "<img src='"+img.src+"'>"-->
-<!--        const canvas = $('#reflay').get(0)-->
-        const canvas = faceapi.createCanvasFromMedia(img)
-
-        container.append(canvas)
-        const displaySize = { width: img.width, height: img.height }
-//         container.append('Hello My Name')
-        faceapi.matchDimensions(canvas, displaySize)
-<!--        faceapi.matchDimensions(canvas, img)-->
         let faceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors().withFaceExpressions()
-//         alert(faceDescriptions)
-         alert("Please wait")
-
-
-//         alert("img and canvas")
+        alert(faceDescriptions)
+        const canvas = $('#reflay').get(0)
+<!--        const canvas = faceapi.createCanvasFromMedia(img)-->
+<!--        img.append(canvas)-->
+        faceapi.matchDimensions(canvas, img)
+        alert("img and canvas")
         faceDescriptions = faceapi.resizeResults(faceDescriptions, img)
 <!--        faceapi.draw.drawDetections(canvas, faceDescriptions)-->
 
@@ -358,7 +339,6 @@ function detection()
 //                       '22145047',   '22145078',  '22145109', '22144015',  '22145018',   '22145048',   '22145079',  '22145110', '22144016',  '22145019',
 //                        '22145049',   '22145080',  '22145111',
 //'22145053', '22144022', '22145084',     '22145025','22145026', '22145054', '22145085','22144024','22145055', '22145024',]
-
         const labeledFaceDescriptors = await Promise.all(
             labels.map(async label => {
 
@@ -386,7 +366,7 @@ function detection()
             const text = i.toString()+" "+bestMatch.toString()
             const drawBox = new faceapi.draw.DrawBox(box, { label: text })
             drawBox.draw(canvas)
-<!--            img.append(canvas)-->
+            img.before(canvas)
             let row = table.insertRow();
             let date = row.insertCell(0);
             let name = row.insertCell(1);
@@ -407,6 +387,31 @@ function detection()
 }
 
 </script>
+<!--<script>-->
+<!--&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit?usp=sharing&ndash;&gt;-->
+<!--let SHEET_ID = '1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs'-->
+<!--let SHEET_TITLE = 'Sheet1';-->
+<!--let SHEET_RANGE = 'A2:D6'-->
+<!--&lt;!&ndash;'E13:F23'&ndash;&gt;-->
+
+<!--let FULL_URL = ('https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?sheet=' + SHEET_TITLE + '&range=' + SHEET_RANGE);-->
+<!--&lt;!&ndash;&lt;!&ndash;https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/edit#gid=0&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash; https://drive.google.com/uc?export=view&id=[image_id]&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash; https://docs.google.com/spreadsheets/d/1U8bwm0oa4EzT0GoraS14Tjga3Piy-MLgpn5Ubca3Qfs/gviz/tq?sheet=image_url&range=D2&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash; https://docs.google.com/spreadsheets/d/e/2PACX-1vRq8nPru_RYbA2UL-XXcD36He2lcb42wutsq9DI1qvrAglxw9IjtgbubJxRlNQK8i5Bssdg6uMPZWTu/pubhtml?gid=0&single=true&ndash;&gt;-->
+
+<!--fetch(FULL_URL)-->
+<!--.then(res => res.text())-->
+<!--.then(rep => {-->
+<!--    let data = JSON.parse(rep.substr(47).slice(0,-2));-->
+<!--    let player_Name_title = document.getElementById('originalImg');-->
+<!--&lt;!&ndash;    console.log(data.table.rows[2].c[3].v);&ndash;&gt;-->
+
+<!--&lt;!&ndash;    player_Name_title.innerHTML = data.table.rows[0].c[3].v;&ndash;&gt;-->
+<!--    document.getElementById("originalImg").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[0].c[3].v;-->
+<!--    document.getElementById("originalImg1").src = "https://drive.google.com/uc?export=view&id="+data.table.rows[0].c[3].v;-->
+<!--})-->
+<!--</script>-->
 <form name="Form_d" onsubmit="return validateForm()">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label for="date" style="color:white">Date</label>
     <input type="date" id="date" name="date" value="30/01/2023" placeholder="Date">
@@ -442,35 +447,54 @@ function detection()
       <option value="06">06:00 PM</option>
       <option value="07">07:00 PM</option>
     </select>
-
+<!--    <select id="time" name="time">-->
+<!--      <option value="9-10">9:00-10:00 AM</option>-->
+<!--      <option value="10-11">10:00-11:00 AM</option>-->
+<!--      <option value="11-12">11:00-12:00 Noon</option>-->
+<!--    </select></div>-->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <label for="cid" style="color:white">Course Id</label>
     <input type="text" id="cid" name="cid">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <label for="code" style="color:white">Class Code</label>
     <input type="text" id="code" name="code">
+<!--    <label for="time" style="color:white">Course ID</label>-->
+<!--   <input type="text" id="cid" name="cid" placeholder="Course ID..">-->
+<!--    <label for="time" style="color:white">Course Code</label>-->
+<!--   <input type="text" id="ccode" name="ccode" placeholder="Course code..">-->
 
     <button type="button" onclick="detection_1()" class="btn btn-default">Submit</button>
     <button type="button" onclick="detection()" class="btn btn-default">Detect</button>
-    <br><br>
 </form>
-<!-- <div class='row-6 text-center'>-->
-
-<div class="col-6" style="float:left; position:absolute">
-       <img src="images/20221121_104311.jpg"  id="originalImg" style="position:absolute;left:0px" width="500px" height="600px" />
-
-<!--       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>-->
-<!--    <h2 style="color:Yellow">Detected students</h2>-->
+ <div class='mt-3 text-center'>
+<div>
+<div class="column" id="LatestPost">
+       <img src="images/20221121_104311.jpg"  id="originalImg" width="700" height="700" />
+       <canvas id="reflay" width="700" height="700" class="overlay"></canvas>
+    <h2 style="color:Yellow">Detected students</h2>
 </div>
-
-<!--</div>-->
-<div class="col-6">
-&nbsp;&nbsp;&nbsp;&nbsp;     
+   <div class="column">
+<!--<img id="myImg" src="compman.gif" width="107" height="98">-->
+    <div id="Grid" class="Grid">
+<!--        <div id="player_Name_title"></div>-->
+<!--        <div id="player_Shoe_title"></div>-->
     </div>
-<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>-->
-  <div class="col-6" style="float:right">
-<!--      <div class='row-6'>-->
+       <img src="images/20221121_104311.jpg" id="originalImg1" width="700" height="700" />
+       <canvas id="reflay1" width="700" height="700" onclick="popup()" class="overlay1"></canvas>
+       <h2 style="color:Yellow">Tag here for undetected students</h2>
+<!--       <button id="download"class="btn btn-default">Download</button>-->
+<button type="button" onclick="LatestPost();" class="btn btn-default">Download</button>
+       <button style="align:centre"  type="button" class="btn btn-default"><a href="indexgithub2.html" >Next</a></button>
 
+</div>
+</div></div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>br><br><br><br>br><br><br><br>
+  <div class="column">
+  <p style="color:red"> In case, the face remains undetected:<br>
+    1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
+    2. Download the image using download button.<br>
+    3. upload the image at this <a href="https://drive.google.com/drive/folders/1iehWSC3jFtNofH375XHtCGnO0HsoBNKv">link</a>.</p>
         <h4 style="color:white">Attendance for Today</h4>
 
 <table id="myTable" class="table table-bordered table-striped">
@@ -481,7 +505,7 @@ function detection()
       <th>Student Roll Number</th>
       <th> Correct Roll Number</th>
 <!--      <th> Save </th>-->
-<!--    </th>-->
+    </th>
     </tr>
   </thead>
   <tbody id="testBody">
@@ -490,17 +514,11 @@ function detection()
     </form>
 
 </table>
-       
 <!--            <button onclick="ExportToExcel('xlsx')">Export table to excel</button>-->
-            <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Export to Excel">
-  <button type="button" onclick="LatestPost();" class="btn btn-default">Download Image</button>
-       <button style="align:centre"  type="button" class="btn btn-default"><a href="indexgithub2.html" >Next Page</a></button><br>
+            <input type="button"  onclick="tableToExcel('myTable', 'name', 'myfile.xls')"  class="btn btn-default" value="Export to Excel"></div></div>
 <!--      <button onclick="exportTableToExcel('myTable')">Export To Excel</button>-->
- <p style="color:red"> In case, the face remains undetected:<br>
-    1. Draw box on your face using by clicking on your face and enter the serial number and roll number.<br>
-    2. Download the image using download button.<br>
-    3. upload the image at this <a href="https://drive.google.com/drive/folders/1iehWSC3jFtNofH375XHtCGnO0HsoBNKv">link</a>.</p></div></div>
-<!--<div class='mt-3 text-center'>-->
+
+<div class='mt-3 text-center'>
 <!--  <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
 <!--    <br><br><br><br> <br><br><br><br> <br><br><br><br>-->
 <!--     <button style="align:centre"  type="button" class="btn btn-default"><a href="indexgithub2.html" >Next</a></button>-->
