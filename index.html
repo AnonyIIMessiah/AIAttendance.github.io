@@ -343,7 +343,8 @@ function detection()
 <!--        document.img.append(container)-->
 <!--        document.img.append('Loaded')-->
 <!--        img.crossOrigin = "Anonymous";-->
-        alert(img.src)
+//         alert(img.src)
+          alert("Please wait")
 <!--        "<img src='"+img.src+"'>"-->
 <!--        const canvas = $('#reflay').get(0)-->
         const canvas = faceapi.createCanvasFromMedia(img)
@@ -354,10 +355,11 @@ function detection()
         faceapi.matchDimensions(canvas, displaySize)
 <!--        faceapi.matchDimensions(canvas, img)-->
         let faceDescriptions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceDescriptors().withFaceExpressions()
-        alert(faceDescriptions)
+//         alert(faceDescriptions)
+         alert("Please wait")
 
 
-        alert("img and canvas")
+//         alert("img and canvas")
         faceDescriptions = faceapi.resizeResults(faceDescriptions, img)
 <!--        faceapi.draw.drawDetections(canvas, faceDescriptions)-->
 
